@@ -1,0 +1,12 @@
+{
+  "name": "unity-mysql-connector",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "mysql2": "^3.11.0",
+    "express": "^5.1.0"
+  },
+  "scripts": {
+    "start": "nodemon app.js"
+  }
+}
