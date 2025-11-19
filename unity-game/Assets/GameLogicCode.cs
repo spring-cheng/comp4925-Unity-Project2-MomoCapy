@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameLogicCode : MonoBehaviour
 {
@@ -104,18 +105,24 @@ public class GameLogicCode : MonoBehaviour
         label.text = request.downloadHandler.text;
     }
 
-    public IEnumerator loginUser()
+public IEnumerator loginUser()
+{
+    string url = "http://localhost:3000/login";
+
+    WWWForm form = new WWWForm();
+    form.AddField("username", username_input.text);
+    form.AddField("password", password_input.text);
+
+    UnityWebRequest request = UnityWebRequest.Post(url, form);
+    yield return request.SendWebRequest();
+
+    string result = request.downloadHandler.text;
+    label.text = result;
+
+    if (result.Contains("logged in")) 
     {
-        string url = "http://localhost:3000/login";
-
-        WWWForm form = new WWWForm();
-        form.AddField("username", username_input.text);
-        form.AddField("password", password_input.text);
-
-        UnityWebRequest request = UnityWebRequest.Post(url, form);
-        yield return request.SendWebRequest();
-
-        label.text = request.downloadHandler.text;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
+}
 
 }
