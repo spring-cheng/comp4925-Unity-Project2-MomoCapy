@@ -4,6 +4,7 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import helmet from 'helmet';
 import path from 'path';
+import bcrypt from 'bcryptjs';
 import database from './databaseConnectionMongoDB.js';
 
 const port = process.env.PORT || 3000;
@@ -69,8 +70,43 @@ app.get('/', (req, res) => {
   res.send('Hello from Express app');
 });
 
-app.post('/', (req, res) => {
-  res.send(`u: ${req.body.username}, p: ${req.body.password}`);
+app.get('/', (req, res) => {
+  res.send("Hello from Express app");
+});
+
+app.post('/register', async (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password)
+    return res.status(400).send("Missing fields");
+
+  const exists = await users.findOne({ username });
+
+  if (exists)
+    return res.status(400).send("User already exists");
+
+  const hashed = await bcrypt.hash(password, 10);
+
+  await users.insertOne({
+    username,
+    password: hashed,
+  });
+
+  res.send("Welcome! Your account has been created.");
+});
+
+app.post('/login', async (req, res) => {
+  const { username, password } = req.body;
+
+  const user = await users.findOne({ username });
+  if (!user) return res.status(400).send("User not found");
+
+  const match = await bcrypt.compare(password, user.password);
+  if (!match) return res.status(400).send("Incorrect password");
+
+  req.session.user = username;
+
+  res.send("You are now logged in.");
 });
 
 // 404 handler

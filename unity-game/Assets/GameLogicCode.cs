@@ -45,15 +45,20 @@ public class GameLogicCode : MonoBehaviour
 
     public void PressedButton()
     {
-        label.text = "Button Pressed!";
-        //StartCoroutine(getWebContent());
-        //StartCoroutine(postWebContent());
-        GameObject obj = Instantiate(cat_prefab);
-
-        player.PlaySound();
-        //levelManager.LoadNewLevel();
-        //particles.Play();
+        label.text = "Sending...";
+        StartCoroutine(postWebContent());
     }
+
+    public void PressRegisterButton()
+    {
+        StartCoroutine(registerUser());
+    }
+
+    public void PressLoginButton()
+    {
+        StartCoroutine(loginUser());
+    }
+
 
     public IEnumerator getWebContent()
     {
@@ -66,11 +71,51 @@ public class GameLogicCode : MonoBehaviour
     public IEnumerator postWebContent()
     {
         string url = "http://localhost:3000/";
+
         WWWForm form = new WWWForm();
         form.AddField("username", username_input.text);
         form.AddField("password", password_input.text);
+
+        UnityWebRequest request = UnityWebRequest.Post(url, form);
+
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
+        {
+            label.text = "Error: " + request.error;
+        }
+        else
+        {
+            label.text = request.downloadHandler.text;
+        }
+    }
+
+    public IEnumerator registerUser()
+    {
+        string url = "http://localhost:3000/register";
+
+        WWWForm form = new WWWForm();
+        form.AddField("username", username_input.text);
+        form.AddField("password", password_input.text);
+
         UnityWebRequest request = UnityWebRequest.Post(url, form);
         yield return request.SendWebRequest();
+
         label.text = request.downloadHandler.text;
     }
+
+    public IEnumerator loginUser()
+    {
+        string url = "http://localhost:3000/login";
+
+        WWWForm form = new WWWForm();
+        form.AddField("username", username_input.text);
+        form.AddField("password", password_input.text);
+
+        UnityWebRequest request = UnityWebRequest.Post(url, form);
+        yield return request.SendWebRequest();
+
+        label.text = request.downloadHandler.text;
+    }
+
 }
