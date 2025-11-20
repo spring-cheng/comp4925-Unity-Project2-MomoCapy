@@ -63,7 +63,7 @@ public class GameLogicCode : MonoBehaviour
 
     public IEnumerator getWebContent()
     {
-        string url = "http://localhost:3000/";
+        string url = "http://localhost:5000/";
         UnityWebRequest request = UnityWebRequest.Get(url);
         yield return request.SendWebRequest();
         label.text = request.downloadHandler.text;
@@ -71,7 +71,7 @@ public class GameLogicCode : MonoBehaviour
 
     public IEnumerator postWebContent()
     {
-        string url = "http://localhost:3000/";
+        string url = "http://localhost:5000/";
 
         WWWForm form = new WWWForm();
         form.AddField("username", username_input.text);
@@ -93,7 +93,7 @@ public class GameLogicCode : MonoBehaviour
 
     public IEnumerator registerUser()
     {
-        string url = "http://localhost:3000/register";
+        string url = "http://localhost:5000/register";
 
         WWWForm form = new WWWForm();
         form.AddField("username", username_input.text);
@@ -107,7 +107,7 @@ public class GameLogicCode : MonoBehaviour
 
 public IEnumerator loginUser()
 {
-    string url = "http://localhost:3000/login";
+    string url = "http://localhost:5000/login";
 
     WWWForm form = new WWWForm();
     form.AddField("username", username_input.text);
