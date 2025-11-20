@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: 00a00b24c5f51ff44b6313ca5170319b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - label: {instanceID: 0}
+  - username_input: {instanceID: 0}
+  - password_input: {instanceID: 0}
+  - cat_prefab: {fileID: 7626131632109295194, guid: 092e0e2501b7bec40acac6004485a13c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

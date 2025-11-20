@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 07ebca12df91ffc4badf9ec9df49edb9
+guid: 35495b2abac54a9498c69eef3ada9137
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -790410345991088130
-    second: Box3_0
+      213: -964314237882630400
+    second: OrangeTabby-Run_0
   - first:
-      213: 294295872754759312
-    second: Box3_1
+      213: -6557374549006301263
+    second: OrangeTabby-Run_1
   - first:
-      213: 687226289990876177
-    second: Box3_2
+      213: 9180167679625070181
+    second: OrangeTabby-Run_2
   - first:
-      213: 2528960788681728815
-    second: Box3_3
+      213: -6337197829240021907
+    second: OrangeTabby-Run_3
+  - first:
+      213: -8748515060528746507
+    second: OrangeTabby-Run_4
+  - first:
+      213: -4112319190075479356
+    second: OrangeTabby-Run_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Box3_0
+      name: OrangeTabby-Run_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 7
         y: 0
-        width: 32
-        height: 32
+        width: 34
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +143,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef758646af5e705f0800000000000000
-      internalID: -790410345991088130
+      spriteID: 00f772f4f411e92f0800000000000000
+      internalID: -964314237882630400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box3_1
+      name: OrangeTabby-Run_1
       rect:
         serializedVersion: 2
-        x: 31
+        x: 54
         y: 0
-        width: 33
-        height: 32
+        width: 35
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,19 +165,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 096396a798c851400800000000000000
-      internalID: 294295872754759312
+      spriteID: 1b7ca4317968ff4a0800000000000000
+      internalID: -6557374549006301263
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box3_2
+      name: OrangeTabby-Run_2
       rect:
         serializedVersion: 2
-        x: 63
+        x: 101
         y: 0
-        width: 33
+        width: 38
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -181,19 +187,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 11c373f6ba4898900800000000000000
-      internalID: 687226289990876177
+      spriteID: 5660392bdd1866f70800000000000000
+      internalID: 9180167679625070181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Box3_3
+      name: OrangeTabby-Run_3
       rect:
         serializedVersion: 2
-        x: 95
+        x: 147
         y: 0
-        width: 33
+        width: 39
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -203,8 +209,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f232444307ca81320800000000000000
-      internalID: 2528960788681728815
+      spriteID: d6c95c47620cd08a0800000000000000
+      internalID: -6337197829240021907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrangeTabby-Run_4
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff670177e7079680800000000000000
+      internalID: -8748515060528746507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: OrangeTabby-Run_5
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 0
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca67801c7b1ee6c0800000000000000
+      internalID: -4112319190075479356
       vertices: []
       indices: 
       edges: []
@@ -223,10 +273,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Box3_0: -790410345991088130
-      Box3_1: 294295872754759312
-      Box3_2: 687226289990876177
-      Box3_3: 2528960788681728815
+      OrangeTabby-Run_0: -964314237882630400
+      OrangeTabby-Run_1: -6557374549006301263
+      OrangeTabby-Run_2: 9180167679625070181
+      OrangeTabby-Run_3: -6337197829240021907
+      OrangeTabby-Run_4: -8748515060528746507
+      OrangeTabby-Run_5: -4112319190075479356
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
