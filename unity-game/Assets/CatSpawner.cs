@@ -16,7 +16,7 @@ public class CatSpawner : MonoBehaviour
     {
         spawnTimer += Time.deltaTime;
 
-        if (spawnTimer >= 2f) // spawn every 2 seconds
+        if (spawnTimer >= 5f) // spawn every 5 seconds
         {
             SpawnCat();
             spawnTimer = 0f;

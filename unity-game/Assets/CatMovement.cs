@@ -1,28 +1,41 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class CatMovement : MonoBehaviour
 {
-    public float speed = 2f;
-    private Vector2 randomDirection;
+    [SerializeField] float moveSpeed = 1f;
 
-    private void Start()
+    private Animator animator;
+
+    private void Awake()
     {
-        PickRandomDirection();
+        animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        transform.Translate(randomDirection * speed * Time.deltaTime);
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    // Update is called once per frame
+    void Update()
     {
-        // bounce in a new direction if the cat hits a wall or another cat
-        PickRandomDirection();
+        Move();
     }
 
-    void PickRandomDirection()
+    private void Move()
     {
-        randomDirection = Random.insideUnitCircle.normalized;
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 vector3 = new Vector3(horizontal * moveSpeed * Time.deltaTime,
+                            vertical * moveSpeed * Time.deltaTime,
+                            0);
+
+        transform.Translate(vector3);
+        
+        animator.SetBool("isWalking", horizontal > 0);
     }
 }
