@@ -1,10 +1,8 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class CatMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] float moveSpeed = 5f;
 
     private Animator animator;
 
@@ -13,13 +11,6 @@ public class CatMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         Move();
@@ -27,15 +18,14 @@ public class CatMovement : MonoBehaviour
 
     private void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-        Vector3 vector3 = new Vector3(horizontal * moveSpeed * Time.deltaTime,
-                            vertical * moveSpeed * Time.deltaTime,
-                            0);
+        Vector3 movement = new Vector3(horizontal, vertical, 0f) * moveSpeed * Time.deltaTime;
 
-        transform.Translate(vector3);
-        
-        animator.SetBool("isWalking", horizontal > 0);
+        transform.Translate(movement, Space.World);
+
+        bool isWalking = (horizontal != 0 || vertical != 0);
+        animator.SetBool("isWalking", isWalking);
     }
 }

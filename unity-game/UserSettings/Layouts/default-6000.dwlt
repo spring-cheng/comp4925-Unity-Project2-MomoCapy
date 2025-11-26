@@ -374,8 +374,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Scene\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 337
-    y: 79
+    x: 338
+    y: 24
     width: 1092
     height: 724
   m_SerializedDataModeController:
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 336
     height: 724
   m_SerializedDataModeController:
@@ -1050,18 +1050,18 @@ MonoBehaviour:
       m_ExpandedIDs: 00fbffff4e970000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: OrangeTabby
-        m_OriginalName: OrangeTabby
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 38744
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
         m_ClientGUIView: {fileID: 8}
@@ -1231,7 +1231,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 829
+    y: 774
     width: 1430
     height: 175
   m_SerializedDataModeController:
@@ -1275,7 +1275,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: d8970000
     m_LastClickedID: 38872
-    m_ExpandedIDs: 00000000d897000000ca9a3bffffff7f
+    m_ExpandedIDs: 00000000c6970000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1304,7 +1304,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 7e020000
     m_LastClickedID: 638
-    m_ExpandedIDs: 00000000d8970000
+    m_ExpandedIDs: 00000000c6970000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1419,8 +1419,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1431
-    y: 79
+    x: 1432
+    y: 24
     width: 488
     height: 925
   m_SerializedDataModeController:

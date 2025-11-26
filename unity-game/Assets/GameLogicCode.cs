@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameLogicCode : MonoBehaviour
 {
+
+    public static GameLogicCode Instance;
+
     [Header("Input Fields")]
     [SerializeField] TextMeshProUGUI label;
     [SerializeField] TMP_InputField username_input;
@@ -28,8 +31,17 @@ public class GameLogicCode : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         player = FindAnyObjectByType<AudioPlayer>();
         levelManager = FindAnyObjectByType<LevelManager>();
+    }
+
+    public int catsSaved = 0;
+
+    public void CatSaved()
+    {
+        catsSaved++;
+        Debug.Log("Cats saved: " + catsSaved);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

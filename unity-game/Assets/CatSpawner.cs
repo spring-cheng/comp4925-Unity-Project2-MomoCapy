@@ -30,4 +30,15 @@ public class CatSpawner : MonoBehaviour
 
         Instantiate(catPrefab, new Vector3(x, y, 0), Quaternion.identity);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("SpawningBox"))
+        {
+            // "save" the cat
+            GameLogicCode.Instance.CatSaved();
+            Destroy(other.gameObject);
+        }
+    }
+
 }
