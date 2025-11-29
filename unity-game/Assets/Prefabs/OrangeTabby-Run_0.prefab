@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6246564451842032249}
   - component: {fileID: 4086046975500934962}
   - component: {fileID: 1919665766117015472}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OrangeTabby-Run_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,4 +168,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5cde4b3cd76b5c4297c5abefabaefa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  speed: 2
+  moveSpeed: 5
+  poofPrefab: {fileID: 0}

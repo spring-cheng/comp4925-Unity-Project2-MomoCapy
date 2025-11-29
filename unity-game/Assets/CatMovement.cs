@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class CatMovement : MonoBehaviour
 {
+    [Header("Movement Settings")]
     [SerializeField] float moveSpeed = 5f;
+
+    [Header("Collision Effects")]
+    public GameObject poofPrefab;
 
     private Animator animator;
 
@@ -27,5 +31,26 @@ public class CatMovement : MonoBehaviour
 
         bool isWalking = (horizontal != 0 || vertical != 0);
         animator.SetBool("isWalking", isWalking);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("CatBox"))
+        {
+            // spawn poof effect
+            if (poofPrefab != null)
+            {
+                Instantiate(poofPrefab, other.transform.position, Quaternion.identity);
+            }
+
+            // notify GameManager
+            if (GameLogicCode.Instance != null)
+            {
+                GameLogicCode.Instance.CatSaved();
+            }
+
+            // destroy the box
+            Destroy(other.gameObject);
+        }
     }
 }

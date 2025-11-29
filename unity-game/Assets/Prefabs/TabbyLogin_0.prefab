@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6999592706730005421}
   - component: {fileID: 398582517250099208}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TabbyLogin_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
