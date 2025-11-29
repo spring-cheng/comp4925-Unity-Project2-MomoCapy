@@ -40,7 +40,8 @@ public class CatMovement : MonoBehaviour
             // spawn poof effect
             if (poofPrefab != null)
             {
-                Instantiate(poofPrefab, other.transform.position, Quaternion.identity);
+                GameObject poof = Instantiate(poofPrefab, other.transform.position, Quaternion.identity);
+                Destroy(poof, 0.2f); // destroy after 0.2 second
             }
 
             // notify GameManager
