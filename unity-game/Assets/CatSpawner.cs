@@ -4,11 +4,18 @@ public class CatSpawner : MonoBehaviour
 {
     [SerializeField] GameObject catPrefab;
 
+    [Header("Spawn Settings")]
+    public float spawnInterval = 2f;
+    public float minX = -9f;
+    public float maxX = 9f;
+
+    [Header("Falling Settings")]
+    public float fallSpeed = 5f;
+
     private float spawnTimer = 0f;
 
     void Start()
     {
-        // spawn one cat immediately
         SpawnCat();
     }
 
@@ -16,7 +23,7 @@ public class CatSpawner : MonoBehaviour
     {
         spawnTimer += Time.deltaTime;
 
-        if (spawnTimer >= 5f) // spawn every 5 seconds
+        if (spawnTimer >= spawnInterval)
         {
             SpawnCat();
             spawnTimer = 0f;
@@ -25,20 +32,23 @@ public class CatSpawner : MonoBehaviour
 
     public void SpawnCat()
     {
-        float x = Random.Range(-7f, 7f);
-        float y = Random.Range(-4f, 4f);
+        float randomX = Random.Range(minX, maxX);
+        Vector3 spawnPos = new Vector3(randomX, transform.position.y, 0);
 
-        Instantiate(catPrefab, new Vector3(x, y, 0), Quaternion.identity);
+        // spawn the catbox
+        GameObject box = Instantiate(catPrefab, spawnPos, Quaternion.identity);
+
+        box.AddComponent<FallingMovement>().speed = fallSpeed;
     }
+}
 
-    private void OnTriggerEnter2D(Collider2D other)
+
+public class FallingMovement : MonoBehaviour
+{
+    public float speed = 2f;
+
+    void Update()
     {
-        if (other.CompareTag("SpawningBox"))
-        {
-            // "save" the cat
-            GameLogicCode.Instance.CatSaved();
-            Destroy(other.gameObject);
-        }
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
-
 }
