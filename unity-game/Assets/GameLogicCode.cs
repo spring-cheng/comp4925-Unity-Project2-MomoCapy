@@ -112,7 +112,6 @@ public class GameLogicCode : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // todo: Send score to backend
     [System.Serializable]
     private class ScorePayload
     {
@@ -123,6 +122,8 @@ public class GameLogicCode : MonoBehaviour
 
     private IEnumerator SendScoreToBackend(bool won)
     {
+        string url = "http://localhost:5000/score";
+
         var payload = new ScorePayload
         {
             savedCats = this.catsSaved,
@@ -131,21 +132,23 @@ public class GameLogicCode : MonoBehaviour
         };
 
         string json = JsonUtility.ToJson(payload);
-        string url = "http://localhost:5000/score";
 
-        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        UnityWebRequest request = new UnityWebRequest(url, "POST");
+
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
+        request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+        request.downloadHandler = new DownloadHandlerBuffer();
+        request.SetRequestHeader("Content-Type", "application/json");
+
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success)
         {
-            byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(json);
-            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
-            request.downloadHandler = new DownloadHandlerBuffer();
-            request.SetRequestHeader("Content-Type", "application/json");
-
-            yield return request.SendWebRequest();
-
-            if (request.result != UnityWebRequest.Result.Success)
-                Debug.LogError("Score upload failed: " + request.error);
-            else
-                Debug.Log("Score upload success: " + request.downloadHandler.text);
+            Debug.LogError("Score upload failed: " + request.error);
+        }
+        else
+        {
+            Debug.Log("Score upload success: " + request.downloadHandler.text);
         }
     }
 
