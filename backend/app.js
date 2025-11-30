@@ -109,6 +109,39 @@ app.post('/login', async (req, res) => {
   res.send("You are now logged in.");
 });
 
+app.post('/score', async (req, res) => {
+  try {
+    if (!req.session.user) {
+      return res.status(401).json({ error: "Not logged in." });
+    }
+
+    const { savedCats, missedBoxes, won } = req.body;
+
+    if (savedCats == null || missedBoxes == null || won == null) {
+      return res.status(400).json({ error: "Missing score fields." });
+    }
+
+    const scoresCollection = database
+      .db(process.env.REMOTE_MONGODB_DATABASE)
+      .collection("scores");
+
+    const entry = {
+      username: req.session.user,
+      savedCats,
+      missedBoxes,
+      won,
+      createdAt: new Date()
+    };
+
+    await scoresCollection.insertOne(entry);
+
+    res.json({ success: true, message: "Score saved successfully!" });
+  } catch (err) {
+    console.error("Score error:", err);
+    res.status(500).json({ error: "Server error saving score" });
+  }
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).send('Not Found');
