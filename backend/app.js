@@ -3,6 +3,7 @@ import express from 'express';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 import helmet from 'helmet';
+import cors from 'cors';
 import path from 'path';
 import bcrypt from 'bcryptjs';
 import database from './databaseConnectionMongoDB.js';
@@ -10,6 +11,12 @@ import database from './databaseConnectionMongoDB.js';
 const port = process.env.PORT || 5000;
 
 const app = express();
+
+app.use(cors({
+  origin: "https://momocapy-unity.netlify.app/",
+  methods: ["GET", "POST", "OPTIONS"],
+  credentials: true,
+}));
 
 // Middleware
 app.use(helmet({
@@ -20,7 +27,7 @@ app.use(helmet({
       scriptSrc: ["'self'"],
       imgSrc: ["'self'", "data:", "https://res.cloudinary.com"], // Allow Cloudinary images
       fontSrc: ["'self'"],
-      connectSrc: ["'self'"],
+      connectSrc: ["'self'", "https://momocapy-unity.netlify.app/"],
       mediaSrc: ["'self'"],
       objectSrc: ["'none'"],
       childSrc: ["'self'"],
@@ -67,18 +74,27 @@ app.use(express.urlencoded({ extended: true }));
 
 // Basic routes
 app.get('/', (req, res) => {
-  res.send('Hello from Express app');
-});
-
-app.get('/', (req, res) => {
   res.send("Hello from Express app");
 });
+
+
+function isStrongPassword(password) {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{10,}$/;
+  return regex.test(password);
+}
+
 
 app.post('/register', async (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password)
     return res.status(400).send("Missing fields");
+
+  if (!isStrongPassword(password)) {
+    return res.status(400).send(
+      "Password must be at least 10 characters long and include upper/lowercase letters, numbers, and symbols."
+    );
+  }
 
   const exists = await users.findOne({ username });
 
