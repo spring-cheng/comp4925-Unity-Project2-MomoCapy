@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 app.use(cors({
-  origin: "https://momocapy-unity.netlify.app/",
+  origin: "https://momocapy-unity.netlify.app",
   methods: ["GET", "POST", "OPTIONS"],
   credentials: true,
 }));
@@ -27,7 +27,7 @@ app.use(helmet({
       scriptSrc: ["'self'"],
       imgSrc: ["'self'", "data:", "https://res.cloudinary.com"], // Allow Cloudinary images
       fontSrc: ["'self'"],
-      connectSrc: ["'self'", "https://momocapy-unity.netlify.app/"],
+      connectSrc: ["'self'", "https://momocapy-unity.netlify.app"],
       mediaSrc: ["'self'"],
       objectSrc: ["'none'"],
       childSrc: ["'self'"],
