@@ -122,7 +122,7 @@ public class GameLogicCode : MonoBehaviour
 
     private IEnumerator SendScoreToBackend(bool won)
     {
-        string url = "http://localhost:5000/score";
+        string url = "https://momocapy-unity.onrender.com//score";
 
         var payload = new ScorePayload
         {
@@ -171,7 +171,7 @@ public class GameLogicCode : MonoBehaviour
 
     public IEnumerator postWebContent()
     {
-        string url = "http://localhost:5000/";
+        string url = "https://momocapy-unity.onrender.com/";
         WWWForm form = new WWWForm();
         form.AddField("username", username_input.text);
         form.AddField("password", password_input.text);
@@ -187,7 +187,7 @@ public class GameLogicCode : MonoBehaviour
 
     public IEnumerator registerUser()
     {
-        string url = "http://localhost:5000/register";
+        string url = "https://momocapy-unity.onrender.com/register";
         WWWForm form = new WWWForm();
         form.AddField("username", username_input.text);
         form.AddField("password", password_input.text);
@@ -199,7 +199,7 @@ public class GameLogicCode : MonoBehaviour
 
     public IEnumerator loginUser()
     {
-        string url = "http://localhost:5000/login";
+        string url = "https://momocapy-unity.onrender.com/login";
         WWWForm form = new WWWForm();
         form.AddField("username", username_input.text);
         form.AddField("password", password_input.text);
