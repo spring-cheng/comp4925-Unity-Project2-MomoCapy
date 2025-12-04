@@ -469,7 +469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11, y: 111}
+  m_AnchoredPosition: {x: -20, y: 131}
   m_SizeDelta: {x: 628.632, y: 33.4573}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &320880403
@@ -519,8 +519,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -603,7 +603,14 @@ MonoBehaviour:
   label: {fileID: 320880403}
   username_input: {fileID: 491082644}
   password_input: {fileID: 1809868900}
-  cat_prefab: {fileID: 0}
+  savedText: {fileID: 0}
+  missedText: {fileID: 0}
+  winPanel: {fileID: 0}
+  losePanel: {fileID: 0}
+  catsSaved: 0
+  boxesMissed: 0
+  catsToWin: 10
+  missesToLose: 5
 --- !u!4 &432837022
 Transform:
   m_ObjectHideFlags: 0
@@ -1945,8 +1952,8 @@ Transform:
   m_GameObject: {fileID: 1883914909}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.03, y: -1.02, z: 0}
-  m_LocalScale: {x: 0.5851, y: 0.6177, z: 1}
+  m_LocalPosition: {x: 3.87, y: -0.7, z: 0}
+  m_LocalScale: {x: 0.40178815, y: 0.42417458, z: 0.6867}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
