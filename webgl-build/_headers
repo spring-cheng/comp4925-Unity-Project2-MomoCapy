@@ -1,0 +1,26 @@
+/*
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Resource-Policy: cross-origin
+  Access-Control-Allow-Origin: *
+
+/Build/*.framework.js.br
+  Content-Encoding: br
+  Content-Type: application/javascript
+
+/Build/*.data.br
+  Content-Encoding: br
+  Content-Type: application/octet-stream
+
+/Build/*.wasm.br
+  Content-Encoding: br
+  Content-Type: application/wasm
+
+/Build/*.js
+  Content-Type: application/javascript
+
+/Build/*.wasm
+  Content-Type: application/wasm
+
+/Build/*
+  Access-Control-Allow-Origin: *
